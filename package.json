@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "Mickaël Allonneau <mickael.allonneau@gmail.com> (https://flawyte.github.io)",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "serve": "SERVE=true node index.js"
   },

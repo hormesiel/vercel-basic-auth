@@ -15,7 +15,12 @@ function main(req, res) {
     res.setHeader('WWW-Authenticate', 'Basic realm="Connexion requise"');
     res.end('Access denied');
   } else {
-    res.end('OK! Access granted');
+    fs.readFile(__dirname + '/index.html', (err, html) => {
+      if (err)
+        throw err;
+
+      res.end(html);
+    });
   }
 }
 

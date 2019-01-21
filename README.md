@@ -6,3 +6,4 @@
 - Build step for everything : https://now-basic-auth-ptd44y87i.now.sh/ &rarr; every page and file loading fine; displays `index.html` by default, no auth needed except when manually navigating to `index.js`.
   - Redirect `/` requests to `index.js` : https://now-basic-auth-jjq0vmn1l.now.sh/ &rarr; `/` prompts for authentication; can be bypassed by manually typing the file name in the URL (e.g. `index.html`, `/about.html` etc.).
   - Redirect all requests to `index.js` : https://now-basic-auth-hbodt8abi.now.sh/ &rarr; prompts for authentication on all URLs; always return `index.html`'s content, not requested file's.
+  - Handle HTTP requests in `index.js` : https://now-basic-auth-5y6k4adpk.now.sh/ &rarr; Everything OK!

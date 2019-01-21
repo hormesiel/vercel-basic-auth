@@ -15,7 +15,11 @@ function main(req, res) {
     res.setHeader('WWW-Authenticate', 'Basic realm="Connexion requise"');
     res.end('Access denied');
   } else {
-    fs.readFile(__dirname + '/index.html', (err, html) => {
+    // When request URL is '/', return index.html's content
+    // otherwise return the requested file's content
+    const file = req.url == '/' ? '/index.html' : req.url;
+
+    fs.readFile(__dirname + file, (err, html) => {
       if (err)
         throw err;
 

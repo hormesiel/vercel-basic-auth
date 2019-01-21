@@ -1,0 +1,14 @@
+{
+  "name": "now-basic-auth",
+  "version": "0.0.1",
+  "description": "Example project to demonstrate how to implement HTTP Basic Authentication on a website hosted on Now.",
+  "main": "index.js",
+  "author": "Mickaël Allonneau <mickael.allonneau@gmail.com> (https://flawyte.github.io)",
+  "license": "MIT",
+  "scripts": {
+    "serve": "SERVE=true node index.js"
+  },
+  "dependencies": {
+    "basic-auth": "^2.0.1"
+  }
+}

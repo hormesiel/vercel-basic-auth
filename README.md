@@ -7,3 +7,4 @@
   - Redirect `/` requests to `index.js` : https://now-basic-auth-jjq0vmn1l.now.sh/ &rarr; `/` prompts for authentication; can be bypassed by manually typing the file name in the URL (e.g. `index.html`, `/about.html` etc.).
   - Redirect all requests to `index.js` : https://now-basic-auth-hbodt8abi.now.sh/ &rarr; prompts for authentication on all URLs; always return `index.html`'s content, not requested file's.
   - Handle HTTP requests in `index.js` : https://now-basic-auth-5y6k4adpk.now.sh/ &rarr; Everything OK!
+  - Return HTML file on authentication failed : https://now-basic-auth-66yyiknhp.now.sh &rarr; Everything OK!

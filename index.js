@@ -15,8 +15,17 @@ function main(req, res) {
     res.setHeader('WWW-Authenticate', 'Basic realm="Connexion requise"');
     res.end('Access denied');
   } else {
-    // When request URL is '/', return index.html's content
-    // otherwise return the requested file's content
+    // We don't have a favicon, but we must handle the request or our code below will try to read that file,
+    // which doesn't exist, causing a crash.
+    // The file is requested when navigating to '/static/icon.png'.
+    if (req.url == '/favicon.ico') {
+      res.statusCode = 404;
+      res.end();
+      return;
+    }
+
+    // When request URL is '/', return index.html's content,
+    // otherwise return the requested file's content.
     const file = req.url == '/' ? '/index.html' : req.url;
 
     fs.readFile(__dirname + file, (err, html) => {

@@ -13,7 +13,7 @@ function main(req, res) {
   if (!credentials || !check(credentials.name, credentials.pass)) {
     res.statusCode = 401;
     res.setHeader('WWW-Authenticate', 'Basic realm="Connexion requise"');
-    res.end('Access denied');
+    returnFile(res, '/index-denied.html');
   } else {
     // We don't have a favicon, but we must handle the request or our code below will try to read that file,
     // which doesn't exist, causing a crash.

@@ -27,14 +27,17 @@ function main(req, res) {
     // When request URL is '/', return index.html's content,
     // otherwise return the requested file's content.
     const file = req.url == '/' ? '/index.html' : req.url;
-
-    fs.readFile(__dirname + file, (err, html) => {
-      if (err)
-        throw err;
-
-      res.end(html);
-    });
+    returnFile(res, file);
   }
+}
+
+function returnFile(res, filePath) {
+  fs.readFile(__dirname + filePath, (err, html) => {
+    if (err)
+      throw err;
+
+    res.end(html);
+  });
 }
 
 module.exports = main;

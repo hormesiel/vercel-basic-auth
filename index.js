@@ -7,8 +7,9 @@ const mw = require('./server/middlewares');
 
 const app = new App(__dirname);
 
-app.get('/favicon.ico', mw.serveStatic);
-app.get('/*', mw.basicAuth, mw.serveStatic);
+// Require Basic Auth only for URLs that start with 'admin/'
+app.get('/admin/*', mw.basicAuth, mw.serveStatic);
+app.get('/*', mw.serveStatic);
 
 function main(req, res) {
   console.log('GET ' + req.url);

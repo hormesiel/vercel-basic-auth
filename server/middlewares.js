@@ -21,11 +21,31 @@ function basicAuth(req, res, next) {
 }
 
 function serveStatic(req, res, next) {
-  // If request URL ends with '/', return the directory's 'index.html'
-  const filePath = req.url.endsWith('/') ? (req.url + 'index.html') : req.url;
+  const appRoot = req.app.rootDir;
+
+  // Check if the resource exists and if it's a directory or a file
+  let file;
+  try {
+    file = fs.statSync(appRoot + req.url);
+  } catch (err) {
+    console.error(err);
+    next();
+    return;
+  }
+
+  // If it's a directory return its 'index.html' file, otherwise return the requested file
+  let path;
+  if (file.isDirectory()) {
+    if (req.url.endsWith('/'))
+      path = appRoot + req.url + 'index.html';
+    else
+      path = appRoot + req.url + '/index.html';
+  }
+  else
+    path = appRoot + req.url;
 
   // Try to read the requested file
-  fs.readFile(req.app.rootDir + filePath, (err, html) => {
+  fs.readFile(path, (err, html) => {
     // If we can't (e.g. it doesn't exist)
     if (err) {
       // log the error

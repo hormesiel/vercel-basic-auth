@@ -7,10 +7,20 @@
 </head>
 <body>
 
-  <img src='/static/icon.png'>
-  <h1>Home</h1>
-  <p>This is the Home page &#8211; it doesn't require authentication.</p>
-  <a href='/admin/index.html'>Admin area &rarr;</a>
+  <h1><img class='TitleIcon' src='/static/icon.png'> Home</h1>
+
+  <h2>Public</h2>
+  <ul>
+    <li><a href='/'>/</a></li>
+    <li><a href='/static/app.css'>/static/app.css</a></li>
+    <li><a href='/static/icon.png'>/static/icon.png</a></li>
+  </ul>
+
+  <h2>Admin only</h2>
+  <ul>
+    <li><a href='/admin/index.html'>/admin/index.html</a></li>
+    <li><a href='/admin/analytics.html'>/admin/analytics.html</a></li>
+  </ul>
 
 </body>
 </html>

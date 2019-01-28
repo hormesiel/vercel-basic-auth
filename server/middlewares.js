@@ -16,7 +16,10 @@ function basicAuth(req, res, next) {
   // Else, ask for authentication
   else {
     res.writeHead(401, { 'WWW-Authenticate': 'Basic realm="Restricted area"' });
-    res.end('Restricted area. Refresh to login.');
+    res.end(`Restricted area. Refresh to login.
+
+login = admin
+pass = admin`);
   }
 }
 

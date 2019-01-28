@@ -21,8 +21,8 @@ function basicAuth(req, res, next) {
 }
 
 function serveStatic(req, res, next) {
-  // Return 'index.html' if url is '/', otherwise return target file
-  const filePath = req.url == '/' ? '/index.html' : req.url;
+  // If request URL ends with '/', return the directory's 'index.html'
+  const filePath = req.url.endsWith('/') ? (req.url + 'index.html') : req.url;
 
   // Try to read the requested file
   fs.readFile(req.app.rootDir + filePath, (err, html) => {

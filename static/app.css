@@ -9,10 +9,9 @@ body {
 
 a {
   display: inline-block;
-  width: 100%;
 }
 a:hover {
-  background: lightgray;
+  background: #ddd;
 }
 
 .TitleIcon {

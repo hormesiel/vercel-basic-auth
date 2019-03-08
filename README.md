@@ -13,3 +13,12 @@ This repo contains examples of how to add *Basic Authentication* to a Now deploy
 | -------- | ----------- | -------------- |
 | node  | 44.48 KB  | [Link](https://now-basic-auth-node-g3kpijzr3.now.sh) |
 | node-express  | 307.77 KB | [Link](https://now-basic-auth-node-express-4cngbtsh4.now.sh) |
+
+## Contributing
+
+Issues and PR are welcome!
+
+* 🔀 Fork and clone the project
+* 🆕 Create a directory named after the language / framework you want to add (for example `php` or `node-polka`)
+* 👨‍💻 Add the implementation
+* 🎉 Submit your PR

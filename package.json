@@ -5,6 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "node": "SERVE=true node node/index.js",
     "node-express": "node node-express/index.js",
     "deploy-node-express": "cd node-express && now"
   }

@@ -1,8 +1,15 @@
-Example project to demonstrate how to add HTTP Basic Authentication to a website hosted on Now, using *node.js*.
-**See it in action here** : https://now-basic-auth-8ljo42yk5.now.sh/
+## Goal
 
-This example is divided in two parts :
-- Static files (HTML, CSS & PNG) accessible by anyone
-- An `/admin` area which requires authentication (login = *admin*, pass = *admin*)
+This repo contains examples of how to add *Basic Authentication* to a Now deployment using various languages / frameworks, along with some numbers that show the differences between each method.
 
-Because it's just an example the credentials are hard-coded, but they could be easily replaced with some database query.
+## Structure
+
+- The `_static` directory contains all the static stuff each implementation serves for demonstration purposes : HTML, CSS, images...
+- All the other directories are the different ways you can add Basic Authentication to a Now deployment. Checkout their code to see how to implement it in your project
+
+## Comparison
+
+| Example  | 📦 Lambda size | 🔗 Deployment URL |
+| -------- | ----------- | -------------- |
+| node  | 44.48 KB  | [Link](https://now-basic-auth-node-g3kpijzr3.now.sh) |
+| node-express  | 307.77 KB | [Link](https://now-basic-auth-node-express-4cngbtsh4.now.sh) |

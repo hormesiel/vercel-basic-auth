@@ -9,7 +9,7 @@ const app = express();
 
 app.use('/admin', basicAuth({
   challenge: true,
-  realm: 'now-express-basic-auth',
+  realm: 'now-basic-auth-node-express',
   users: { 'admin': 'admin' },
   unauthorizedResponse: 'Restricted area. Please login (admin:admin).'
 }));

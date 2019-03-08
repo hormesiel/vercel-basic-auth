@@ -1,12 +1,11 @@
 {
-  "name": "auth-basic",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "author": "Mickaël Allonneau <mickael.allonneau@gmail.com> (https://flawyte.github.io)",
+  "name": "now-basic-auth",
+  "repository": "git@github.com:flawyte/now-basic-auth.git",
+  "author": "Mickaël Allonneau <mickael.allonneau@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "express": "^4.16.4",
-    "express-basic-auth": "^1.1.6"
+  "private": true,
+  "scripts": {
+    "node-express": "node node-express/index.js",
+    "deploy-node-express": "cd node-express && now"
   }
 }

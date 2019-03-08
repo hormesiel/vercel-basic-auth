@@ -20,7 +20,7 @@ const auth = (req, res, next) => {
   }
 };
 
-const serve = serveStatic(__dirname + '/example');
+const serve = serveStatic(__dirname + '/_static');
 
 /*
  *

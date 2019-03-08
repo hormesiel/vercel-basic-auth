@@ -14,7 +14,7 @@ app.use('/admin', basicAuth({
   unauthorizedResponse: 'Restricted area. Please login (admin:admin).'
 }));
 
-app.use(express.static(__dirname + '/example'));
+app.use(express.static(__dirname + '/_static'));
 
 /*
  *

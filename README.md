@@ -4,8 +4,10 @@ This repo contains examples of how to add *Basic Authentication* to a Now deploy
 
 ## Structure
 
-- The `_static` directory contains all the static stuff each implementation serves for demonstration purposes : HTML, CSS, images...
+- The `_static` directory contains the source code for the "website" that each implementation serves for demonstration purposes : HTML, CSS, images ... <sup>1</sup>
 - All the other directories are the different ways you can add Basic Authentication to a Now deployment. Checkout their code to see how to implement it in your project
+
+<sup>1</sup> The demo website has a public area and a restricted `/admin` area **(username / pass : `admin`/`admin`)**.
 
 ## Comparison
 

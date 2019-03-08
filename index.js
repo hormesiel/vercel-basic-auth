@@ -1,31 +1,23 @@
-const App = require('./server/App');
-const mw = require('./server/middlewares');
+const express = require('express');
+const basicAuth = require('express-basic-auth');
 
 /*
  *
  */
 
-const app = new App(__dirname);
+const app = express();
 
-// Require Basic Auth only for URLs that start with 'admin'
-app.get('/admin*', mw.basicAuth, mw.serveStatic);
-app.get('/*', mw.serveStatic);
+app.use('/admin', basicAuth({
+  challenge: true,
+  realm: 'now-express-basic-auth',
+  users: { 'admin': 'admin' },
+  unauthorizedResponse: 'Restricted area. Please login (admin:admin).'
+}));
 
-function main(req, res) {
-  console.log('GET ' + req.url);
-  app.process(req, res);
-}
-
-// Required by Now's node builder (https://zeit.co/docs/v2/deployments/official-builders/node-js-now-node/)
-module.exports = main;
+app.use(express.static(__dirname + '/example'));
 
 /*
  *
  */
 
-// Serve on localhost if asked to
-if (process.env.SERVE == 'true') {
-  const http = require('http');
-  const server = http.createServer(main);
-  server.listen(4444);
-}
+app.listen(4444, () => console.log('Listening on port 4444...'));

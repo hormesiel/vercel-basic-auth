@@ -2,10 +2,7 @@
   "version": 2,
   "name": "now-basic-auth",
   "builds": [
-    { "src": "**/*.css", "use": "@now/static" },
-    { "src": "**/*.html", "use": "@now/static" },
-    { "src": "**/*.png", "use": "@now/static" },
-    { "src": "index.js", "use": "@now/node" }
+    { "src": "index.js", "use": "@now/node-server" }
   ],
   "routes": [
     { "src": "/(.*)", "dest": "index.js" }

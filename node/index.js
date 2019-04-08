@@ -32,6 +32,7 @@ const app = (req, res) => {
     // auth then serve
     auth(req, res, () => {
       serve(req, res, () => {
+        res.statusCode = 404;
         res.end('404 Not Found');
       });
     });
@@ -40,6 +41,7 @@ const app = (req, res) => {
   else {
     // just serve
     serve(req, res, () => {
+      res.statusCode = 404;
       res.end('404 Not Found');
     });
   }

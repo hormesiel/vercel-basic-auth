@@ -6,7 +6,7 @@
       "src": "index.js",
       "use": "@now/node-server",
       "config": {
-        "includeFiles": ["_static/*.js"]
+        "includeFiles": ["_static/**/*.js"]
       }
     }
   ],

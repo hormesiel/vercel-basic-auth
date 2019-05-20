@@ -2,6 +2,8 @@
 
 This repo contains examples of how to add *Basic Authentication* to a Now deployment using various languages / frameworks, along with some numbers that show the differences between each method.
 
+Each example contains its own README file with some additional information.
+
 ## Structure
 
 - The `_static` directory contains the source code for the "website" that each implementation serves for demonstration purposes : HTML, CSS, images ... <sup>1</sup>

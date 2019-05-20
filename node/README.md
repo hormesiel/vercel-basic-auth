@@ -1,0 +1,1 @@
+This example uses the [basic-auth](https://www.npmjs.com/package/basic-auth) and [serve-static](https://www.npmjs.com/package/serve-static) packages, and requires some code to be written to tie everything together.

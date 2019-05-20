@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "now-basic-auth-node",
+  "public": true,
   "builds": [
     {
       "src": "index.js",

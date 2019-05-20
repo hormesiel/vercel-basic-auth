@@ -11,6 +11,9 @@
     "node-express": "node node-express/index.js",
     "deploy-node-express": "cd node-express && now",
 
+    "node-static-auth": "SERVE=true node node-static-auth/index.js",
+    "deploy-node-static-auth": "cd node-static-auth && now",
+
     "update-static-dirs": "bash update-static-dirs.sh"
   }
 }

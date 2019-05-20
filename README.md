@@ -11,10 +11,11 @@ This repo contains examples of how to add *Basic Authentication* to a Now deploy
 
 ## Comparison
 
-| Example  | 📦 Lambda size | 🔗 Deployment URL |
-| -------- | ----------- | -------------- |
-| node  | 44.48 KB  | [Link](https://now-basic-auth-node-g3kpijzr3.now.sh) |
-| node-express  | 307.77 KB | [Link](https://now-basic-auth-node-express-4cngbtsh4.now.sh) |
+| Example          | 📦 Lambda size | 🔗 Deployment URL |
+| ---------------- | -------------  | ---------------- |
+| node             | 83.47 KB       | [Link](https://now-basic-auth-node.flawyte.now.sh) |
+| node-express     | 385.52 KB      | [Link](https://now-basic-auth-node-express.flawyte.now.sh) |
+| node-static-auth | 83 KB          | [Link](https://now-basic-auth-node-static-auth.flawyte.now.sh) |
 
 ## Contributing
 

@@ -13,11 +13,6 @@ app.use('/admin', basicAuth({
   users: { 'admin': 'admin' },
   unauthorizedResponse: 'Restricted area. Please login (admin:admin).'
 }));
-
 app.use(express.static(__dirname + '/_static'));
-
-/*
- *
- */
 
 app.listen(4444, () => console.log('Listening on port 4444...'));

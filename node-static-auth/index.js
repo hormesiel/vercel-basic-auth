@@ -16,7 +16,7 @@ module.exports = app;
  *
  */
 
-// Serve on localhost if asked to
+// Serve on localhost if asked to.
 // NOTE: This only used for testing locally, this is NOT needed nor used by Now once deployed.
 if (process.env.SERVE === 'true') {
   const http = require('http');

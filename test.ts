@@ -35,7 +35,7 @@ if (!process.env.TEST_VARIANT)
 import nodeFetch from 'node-fetch';
 
 //
-// Declarations
+// Test variants
 //
 
 const testVariants = {
@@ -70,11 +70,41 @@ const testVariants = {
 
 const testVariant = testVariants[process.env.TEST_VARIANT];
 
-const fetch = relativeUrl => nodeFetch('http://localhost:4444' + relativeUrl, {
-  headers: {
-    'Authorization': 'Basic ' + Buffer.from(testVariant.credentials.username + ':' + testVariant.credentials.password).toString('base64')
-  }
-});
+//
+// Helpers
+//
+
+function adminAreaTest(url: string, expectedResponseCode: number) {
+  describe('GET ' + url, () => {
+    it(expectedResponseCode.toString(), async () => {
+      const res = await fetch(url);
+      expect(res.status).toBe(expectedResponseCode);
+
+      // If not authorized, check response body too
+      if (res.status === 401) {
+        const body = await res.text();
+        expect(body).toBe('Restricted area, please login (admin:admin).');
+      }
+    });
+  });
+}
+
+function fetch(relativeUrl: string) {
+  return nodeFetch('http://localhost:4444' + relativeUrl, {
+    headers: {
+      'Authorization': 'Basic ' + Buffer.from(testVariant.credentials.username + ':' + testVariant.credentials.password).toString('base64')
+    }
+  });
+}
+
+function publicAreaTest(url: string, expectedResponseCode: number) {
+  describe('GET ' + url, () => {
+    it(expectedResponseCode.toString(), async () => {
+      const res = await fetch(url);
+      expect(res.status).toBe(expectedResponseCode);
+    });
+  });
+}
 
 //
 // Tests
@@ -83,172 +113,28 @@ const fetch = relativeUrl => nodeFetch('http://localhost:4444' + relativeUrl, {
 describe(testVariant.name, () => {
   // Public area
 
-  describe('GET /', () => {
-    it('200', async () => {
-      const res = await fetch('/');
-      expect(res.status).toBe(200);
-    });
-  });
-
-  describe('GET /index.html', () => {
-    it('200', async () => {
-      const res = await fetch('/index.html');
-      expect(res.status).toBe(200);
-    });
-  });
-
-  describe('GET /index.js', () => {
-    it('200', async () => {
-      const res = await fetch('/index.js');
-      expect(res.status).toBe(200);
-    });
-  });
-
-  describe('GET /about.html', () => {
-    it('200', async () => {
-      const res = await fetch('/about.html');
-      expect(res.status).toBe(200);
-    });
-  });
-
-  describe('GET /_assets/ic_home.svg', () => {
-    it('200', async () => {
-      const res = await fetch('/_assets/ic_home.svg');
-      expect(res.status).toBe(200);
-    });
-  });
-
-  describe('GET /_assets/ic_about.svg', () => {
-    it('200', async () => {
-      const res = await fetch('/_assets/ic_about.svg');
-      expect(res.status).toBe(200);
-    });
-  });
-
-  describe('GET /_styles/app.css', () => {
-    it('200', async () => {
-      const res = await fetch('/_styles/app.css');
-      expect(res.status).toBe(200);
-    });
-  });
+  publicAreaTest('/', 200);
+  publicAreaTest('/index.html', 200);
+  publicAreaTest('/index.js', 200);
+  publicAreaTest('/about.html', 200);
+  publicAreaTest('/_assets/ic_home.svg', 200);
+  publicAreaTest('/_assets/ic_about.svg', 200);
+  publicAreaTest('/_styles/app.css', 200);
 
   // Admin area
 
   const expectedResponseCode = testVariant.expectedAdminAreaResponseCode;
-  const expectedResponseCodeStr = expectedResponseCode.toString();
 
-  describe('GET /admin', () => {
-    it(expectedResponseCodeStr, async () => {
-      const res = await fetch('/admin');
-      expect(res.status).toBe(expectedResponseCode);
-
-      // If not authorized, check response body too
-      if (res.status === 401) {
-        const body = await res.text();
-        expect(body).toBe('Restricted area, please login (admin:admin).');
-      }
-    });
-  });
-
-  describe('GET /admin/index.html', () => {
-    it(expectedResponseCodeStr, async () => {
-      const res = await fetch('/admin/index.html');
-      expect(res.status).toBe(expectedResponseCode);
-
-      // If not authorized, check response body too
-      if (res.status === 401) {
-        const body = await res.text();
-        expect(body).toBe('Restricted area, please login (admin:admin).');
-      }
-    });
-  });
-
-  describe('GET /admin/index.js', () => {
-    it(expectedResponseCodeStr, async () => {
-      const res = await fetch('/admin/index.js');
-      expect(res.status).toBe(expectedResponseCode);
-
-      // If not authorized, check response body too
-      if (res.status === 401) {
-        const body = await res.text();
-        expect(body).toBe('Restricted area, please login (admin:admin).');
-      }
-    });
-  });
-
-  describe('GET /admin/users.html', () => {
-    it(expectedResponseCodeStr, async () => {
-      const res = await fetch('/admin/users.html');
-      expect(res.status).toBe(expectedResponseCode);
-
-      // If not authorized, check response body too
-      if (res.status === 401) {
-        const body = await res.text();
-        expect(body).toBe('Restricted area, please login (admin:admin).');
-      }
-    });
-  });
-
-  describe('GET /admin/_assets/ic_dashboard.svg', () => {
-    it(expectedResponseCodeStr, async () => {
-      const res = await fetch('/admin/_assets/ic_dashboard.svg');
-      expect(res.status).toBe(expectedResponseCode);
-
-      // If not authorized, check response body too
-      if (res.status === 401) {
-        const body = await res.text();
-        expect(body).toBe('Restricted area, please login (admin:admin).');
-      }
-    });
-  });
-
-  describe('GET /admin/_assets/ic_users.svg', () => {
-    it(expectedResponseCodeStr, async () => {
-      const res = await fetch('/admin/_assets/ic_users.svg');
-      expect(res.status).toBe(expectedResponseCode);
-
-      // If not authorized, check response body too
-      if (res.status === 401) {
-        const body = await res.text();
-        expect(body).toBe('Restricted area, please login (admin:admin).');
-      }
-    });
-  });
-
-  describe('GET /admin/_styles/admin.css', () => {
-    it(expectedResponseCodeStr, async () => {
-      const res = await fetch('/admin/_styles/admin.css');
-      expect(res.status).toBe(expectedResponseCode);
-
-      // If not authorized, check response body too
-      if (res.status === 401) {
-        const body = await res.text();
-        expect(body).toBe('Restricted area, please login (admin:admin).');
-      }
-    });
-  });
+  adminAreaTest('/admin', expectedResponseCode);
+  adminAreaTest('/admin/index.html', expectedResponseCode);
+  adminAreaTest('/admin/index.js', expectedResponseCode);
+  adminAreaTest('/admin/users.html', expectedResponseCode);
+  adminAreaTest('/admin/_assets/ic_dashboard.svg', expectedResponseCode);
+  adminAreaTest('/admin/_assets/ic_users.svg', expectedResponseCode);
+  adminAreaTest('/admin/_styles/admin.css', expectedResponseCode);
 
   // Non-existent URL
 
-  describe('GET /foo', () => {
-    it('404', async () => {
-      const res = await fetch('/foo');
-      expect(res.status).toBe(404);
-    });
-  });
-
-  describe('GET /admin/foo', () => {
-    const expectedResponseCode = testVariant.expectedAdminAreaNonExistentUrlResponseCode;
-
-    it(expectedResponseCode.toString(), async () => {
-      const res = await fetch('/admin/foo');
-      expect(res.status).toBe(expectedResponseCode);
-
-      // If not authorized, check response body too
-      if (res.status === 401) {
-        const body = await res.text();
-        expect(body).toBe('Restricted area, please login (admin:admin).');
-      }
-    });
-  });
+  publicAreaTest('/foo', 404);
+  adminAreaTest('/admin/foo', testVariant.expectedAdminAreaNonExistentUrlResponseCode);
 });

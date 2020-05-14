@@ -5,46 +5,34 @@ const serveStatic = require('serve-static');
  *
  */
 
-const auth = (req, res, next) => {
+const auth = (req, res) => new Promise(resolve => {
   const credentials = readAuth(req);
+  const authorized = credentials && credentials.name === 'admin' && credentials.pass === 'admin';
+  resolve(authorized);
+});
 
-  // If request contains valid credentials
-  if (credentials && credentials.name == 'admin' && credentials.pass == 'admin') {
-    // proceed
-    next();
-  }
-  // Else, ask for authentication
-  else {
-    res.writeHead(401, { 'WWW-Authenticate': 'Basic realm="now-basic-auth.node"' });
-    res.end('Restricted area, please login (admin:admin).');
-  }
-};
-
-const serve = serveStatic(__dirname + '/_static');
+const serveHandler = serveStatic(__dirname + '/_static');
+const serve = (req, res, handle404) => new Promise(() => serveHandler(req, res, handle404));
 
 /*
  *
  */
 
-const app = (req, res) => {
-  // If requests admin area
+const app = async (req, res) => {
+  // If requests admin area, auth user before serving files
   if (req.url.startsWith('/admin')) {
-    // auth then serve
-    auth(req, res, () => {
-      serve(req, res, () => {
-        res.statusCode = 404;
-        res.end('404 Not Found');
-      });
-    });
+    const authorized = await auth(req, res);
+    if (!authorized) {
+      res.writeHead(401, { 'WWW-Authenticate': 'Basic realm="now-basic-auth.node"' });
+      return res.end('Restricted area, please login (admin:admin).');
+    }
   }
-  // Else (public area)
-  else {
-    // just serve
-    serve(req, res, () => {
-      res.statusCode = 404;
-      res.end('404 Not Found');
-    });
-  }
+
+  // Serve files
+  return serve(req, res, () => {
+    res.statusCode = 404;
+    res.end('404 Not Found');
+  });
 };
 
 module.exports = app;

@@ -19,6 +19,14 @@
     "node-static-auth": "SERVE=true node node-static-auth/index.js",
     "deploy-node-static-auth": "cd node-static-auth && now",
 
+    "test": "TEST_VARIANT=no-credentials jest && TEST_VARIANT=invalid-credentials jest && TEST_VARIANT=valid-credentials jest",
     "update-static-dirs": "bash update-static-dirs.sh"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.2",
+    "jest": "^25.5.4",
+    "node-fetch": "^2.6.0",
+    "ts-jest": "^25.5.1",
+    "typescript": "^3.9.2"
   }
 }

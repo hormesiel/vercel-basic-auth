@@ -19,6 +19,9 @@ Behaviors to test :
 | GET /admin/_assets/ic_dashboard.svg | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
 | GET /admin/_assets/ic_users.svg     | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
 | GET /admin/_styles/admin.css        | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
+|                                     |                                                        |                                                        |                   |
+| GET /foo                            | 404                                                    | 404                                                    | 404               |
+| GET /admin/foo                      | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 404               |
 
 */
 
@@ -43,6 +46,7 @@ const testVariants = {
       password: null,
     },
     expectedAdminAreaResponseCode: 401,
+    expectedAdminAreaNonExistentUrlResponseCode: 401,
   },
   'invalid-credentials': {
     name: 'Invalid credentials',
@@ -51,6 +55,7 @@ const testVariants = {
       password: 'bar',
     },
     expectedAdminAreaResponseCode: 401,
+    expectedAdminAreaNonExistentUrlResponseCode: 401,
   },
   'valid-credentials': {
     name: 'Valid credentials',
@@ -59,6 +64,7 @@ const testVariants = {
       password: 'admin',
     },
     expectedAdminAreaResponseCode: 200,
+    expectedAdminAreaNonExistentUrlResponseCode: 404,
   },
 };
 
@@ -137,7 +143,7 @@ describe(testVariant.name, () => {
       expect(res.status).toBe(expectedResponseCode);
 
       // If not authorized, check response body too
-      if (res.status == 401) {
+      if (res.status === 401) {
         const body = await res.text();
         expect(body).toBe('Restricted area, please login (admin:admin).');
       }
@@ -150,7 +156,7 @@ describe(testVariant.name, () => {
       expect(res.status).toBe(expectedResponseCode);
 
       // If not authorized, check response body too
-      if (res.status == 401) {
+      if (res.status === 401) {
         const body = await res.text();
         expect(body).toBe('Restricted area, please login (admin:admin).');
       }
@@ -163,7 +169,7 @@ describe(testVariant.name, () => {
       expect(res.status).toBe(expectedResponseCode);
 
       // If not authorized, check response body too
-      if (res.status == 401) {
+      if (res.status === 401) {
         const body = await res.text();
         expect(body).toBe('Restricted area, please login (admin:admin).');
       }
@@ -176,7 +182,7 @@ describe(testVariant.name, () => {
       expect(res.status).toBe(expectedResponseCode);
 
       // If not authorized, check response body too
-      if (res.status == 401) {
+      if (res.status === 401) {
         const body = await res.text();
         expect(body).toBe('Restricted area, please login (admin:admin).');
       }
@@ -189,7 +195,7 @@ describe(testVariant.name, () => {
       expect(res.status).toBe(expectedResponseCode);
 
       // If not authorized, check response body too
-      if (res.status == 401) {
+      if (res.status === 401) {
         const body = await res.text();
         expect(body).toBe('Restricted area, please login (admin:admin).');
       }
@@ -202,7 +208,7 @@ describe(testVariant.name, () => {
       expect(res.status).toBe(expectedResponseCode);
 
       // If not authorized, check response body too
-      if (res.status == 401) {
+      if (res.status === 401) {
         const body = await res.text();
         expect(body).toBe('Restricted area, please login (admin:admin).');
       }
@@ -215,7 +221,31 @@ describe(testVariant.name, () => {
       expect(res.status).toBe(expectedResponseCode);
 
       // If not authorized, check response body too
-      if (res.status == 401) {
+      if (res.status === 401) {
+        const body = await res.text();
+        expect(body).toBe('Restricted area, please login (admin:admin).');
+      }
+    });
+  });
+
+  // Non-existent URL
+
+  describe('GET /foo', () => {
+    it('404', async () => {
+      const res = await fetch('/foo');
+      expect(res.status).toBe(404);
+    });
+  });
+
+  describe('GET /admin/foo', () => {
+    const expectedResponseCode = testVariant.expectedAdminAreaNonExistentUrlResponseCode;
+
+    it(expectedResponseCode.toString(), async () => {
+      const res = await fetch('/admin/foo');
+      expect(res.status).toBe(expectedResponseCode);
+
+      // If not authorized, check response body too
+      if (res.status === 401) {
         const body = await res.text();
         expect(body).toBe('Restricted area, please login (admin:admin).');
       }

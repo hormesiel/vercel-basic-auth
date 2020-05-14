@@ -1,16 +1,12 @@
 {
-  "version": 2,
-  "name": "now-basic-auth-node-static-auth",
   "public": true,
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@now/node",
-      "config": {
-        "includeFiles": ["_static/**/*.js"]
-      }
+  "builds": [{
+    "src": "index.js",
+    "use": "@now/node",
+    "config": {
+      "includeFiles": ["_static/**/*.js"]
     }
-  ],
+  }],
   "routes": [
     { "src": "/.*", "dest": "index.js" }
   ]

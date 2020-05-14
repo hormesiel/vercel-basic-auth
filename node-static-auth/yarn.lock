@@ -123,7 +123,7 @@ send@0.17.1:
     range-parser "~1.2.1"
     statuses "~1.5.0"
 
-serve-static@^1.13.2:
+serve-static@^1.14.1:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/serve-static/-/serve-static-1.14.1.tgz#666e636dc4f010f7ef29970a88a674320898b2f9"
   integrity sha512-JMrvUwE54emCYWlTI+hGrGv5I8dEwmco/00EvkzIIsR7MqrHonbD9pO2MOfFnpFntl7ecpZs+3mW+XbQZu9QCg==
@@ -138,13 +138,13 @@ setprototypeof@1.1.1:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.1.1.tgz#7e95acb24aa92f5885e0abef5ba131330d4ae683"
   integrity sha512-JvdAWfbXeIGaZ9cILp38HntZSFSo3mWg6xGcJJsd+d4aRMOqauag1C63dJfDw7OaMYwEbHMOxEZ1lqVRYP2OAw==
 
-static-auth@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/static-auth/-/static-auth-1.0.0.tgz#9882274efc4c0c268e3925245b3c9c606ab0cf78"
-  integrity sha512-OorMCYgKKQFiZNCwZWKo7PJscq2dnvVqGT/mEBvCvDkg2rPtbfgEkEVPvNxmaz+TIwUoVdy5q1IZfy0OWitzYg==
+static-auth@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/static-auth/-/static-auth-1.1.1.tgz#68133d54e62969c6f40aa9a2d15d4eb61f6be244"
+  integrity sha512-8CeqISLoRRNLccpYmQal71hWb3rlbRO8uKTCAljGmnjyFBAr84aOSWMUVEkRdbTFqyJrZa3Mgs+Ww3vuIUmG+g==
   dependencies:
     basic-auth "^2.0.1"
-    serve-static "^1.13.2"
+    serve-static "^1.14.1"
 
 "statuses@>= 1.5.0 < 2", statuses@~1.5.0:
   version "1.5.0"

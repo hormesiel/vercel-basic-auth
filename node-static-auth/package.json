@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "static-auth": "^1.0.0"
+    "static-auth": "^1.1.1"
   }
 }

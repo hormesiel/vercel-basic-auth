@@ -5,6 +5,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "install": "yarn install:node && yarn install:node-express && yarn install:node-static-auth",
+    "install:node": "cd node/ && yarn",
+    "install:node-express": "cd node-express/ && yarn",
+    "install:node-static-auth": "cd node-static-auth/ && yarn",
+
     "node": "SERVE=true node node/index.js",
     "deploy-node": "cd node && now",
 

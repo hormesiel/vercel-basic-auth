@@ -2,23 +2,23 @@
 
 Behaviors to test :
 
-|                                     | No credentials             | Invalid credentials        | Valid credentials |
-|-------------------------------------|----------------------------|----------------------------|-------------------|
-| GET /                               | 200                        | 200                        | 200               |
-| GET /index.html                     | 200                        | 200                        | 200               |
-| GET /index.js                       | 200                        | 200                        | 200               |
-| GET /about.html                     | 200                        | 200                        | 200               |
-| GET /_assets/ic_home.svg            | 200                        | 200                        | 200               |
-| GET /_assets/ic_about.svg           | 200                        | 200                        | 200               |
-| GET /_styles/app.css                | 200                        | 200                        | 200               |
-|                                     |                            |                            |                   |
-| GET /admin                          | 401, body=401 Unauthorized | 401, body=401 Unauthorized | 200               |
-| GET /admin/index.html               | 401, body=401 Unauthorized | 401, body=401 Unauthorized | 200               |
-| GET /admin/index.js                 | 401, body=401 Unauthorized | 401, body=401 Unauthorized | 200               |
-| GET /admin/users.html               | 401, body=401 Unauthorized | 401, body=401 Unauthorized | 200               |
-| GET /admin/_assets/ic_dashboard.svg | 401, body=401 Unauthorized | 401, body=401 Unauthorized | 200               |
-| GET /admin/_assets/ic_users.svg     | 401, body=401 Unauthorized | 401, body=401 Unauthorized | 200               |
-| GET /admin/_styles/admin.css        | 401, body=401 Unauthorized | 401, body=401 Unauthorized | 200               |
+|                                     | No credentials                                         | Invalid credentials                                    | Valid credentials |
+|-------------------------------------|--------------------------------------------------------|--------------------------------------------------------|-------------------|
+| GET /                               | 200                                                    | 200                                                    | 200               |
+| GET /index.html                     | 200                                                    | 200                                                    | 200               |
+| GET /index.js                       | 200                                                    | 200                                                    | 200               |
+| GET /about.html                     | 200                                                    | 200                                                    | 200               |
+| GET /_assets/ic_home.svg            | 200                                                    | 200                                                    | 200               |
+| GET /_assets/ic_about.svg           | 200                                                    | 200                                                    | 200               |
+| GET /_styles/app.css                | 200                                                    | 200                                                    | 200               |
+|                                     |                                                        |                                                        |                   |
+| GET /admin                          | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
+| GET /admin/index.html               | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
+| GET /admin/index.js                 | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
+| GET /admin/users.html               | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
+| GET /admin/_assets/ic_dashboard.svg | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
+| GET /admin/_assets/ic_users.svg     | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
+| GET /admin/_styles/admin.css        | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
 
 */
 
@@ -139,7 +139,7 @@ describe(testVariant.name, () => {
       // If not authorized, check response body too
       if (res.status == 401) {
         const body = await res.text();
-        expect(body).toBe('401 Unauthorized');
+        expect(body).toBe('Restricted area, please login (admin:admin).');
       }
     });
   });
@@ -152,7 +152,7 @@ describe(testVariant.name, () => {
       // If not authorized, check response body too
       if (res.status == 401) {
         const body = await res.text();
-        expect(body).toBe('401 Unauthorized');
+        expect(body).toBe('Restricted area, please login (admin:admin).');
       }
     });
   });
@@ -165,7 +165,7 @@ describe(testVariant.name, () => {
       // If not authorized, check response body too
       if (res.status == 401) {
         const body = await res.text();
-        expect(body).toBe('401 Unauthorized');
+        expect(body).toBe('Restricted area, please login (admin:admin).');
       }
     });
   });
@@ -178,7 +178,7 @@ describe(testVariant.name, () => {
       // If not authorized, check response body too
       if (res.status == 401) {
         const body = await res.text();
-        expect(body).toBe('401 Unauthorized');
+        expect(body).toBe('Restricted area, please login (admin:admin).');
       }
     });
   });
@@ -191,7 +191,7 @@ describe(testVariant.name, () => {
       // If not authorized, check response body too
       if (res.status == 401) {
         const body = await res.text();
-        expect(body).toBe('401 Unauthorized');
+        expect(body).toBe('Restricted area, please login (admin:admin).');
       }
     });
   });
@@ -204,7 +204,7 @@ describe(testVariant.name, () => {
       // If not authorized, check response body too
       if (res.status == 401) {
         const body = await res.text();
-        expect(body).toBe('401 Unauthorized');
+        expect(body).toBe('Restricted area, please login (admin:admin).');
       }
     });
   });
@@ -217,7 +217,7 @@ describe(testVariant.name, () => {
       // If not authorized, check response body too
       if (res.status == 401) {
         const body = await res.text();
-        expect(body).toBe('401 Unauthorized');
+        expect(body).toBe('Restricted area, please login (admin:admin).');
       }
     });
   });

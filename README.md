@@ -13,10 +13,10 @@ Each example contains its own README file with some additional information.
 
 ## Comparison
 
-| Example          | 📦 Lambda size | 🔗 Deployment URL |
-| ---------------- | -------------  | ---------------- |
-| node             | 0.06 MB        | [Link](https://now-basic-auth-node.flawyte.now.sh) |
-| node-express     | 0.38 MB        | [Link](https://now-basic-auth-node-express.flawyte.now.sh) |
+| Example          | 📦 Lambda size | 🔗 Deployment URL                                              |
+| ---------------- | -------------  | -------------------------------------------------------------- |
+| node             | 0.07 MB        | [Link](https://now-basic-auth-node.flawyte.now.sh)             |
+| node-express     | 0.35 MB        | [Link](https://now-basic-auth-node-express.flawyte.now.sh)     |
 | node-static-auth | 0.07 MB        | [Link](https://now-basic-auth-node-static-auth.flawyte.now.sh) |
 
 ## Contributing

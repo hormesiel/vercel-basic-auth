@@ -2,10 +2,7 @@
   "public": true,
   "builds": [{
     "src": "index.js",
-    "use": "@now/node-server",
-    "config": {
-      "includeFiles": ["_static/**/*.js"]
-    }
+    "use": "@now/node"
   }],
   "routes": [
     { "src": "/.*", "dest": "index.js" }

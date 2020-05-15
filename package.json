@@ -13,7 +13,7 @@
     "node": "SERVE=true node node/index.js",
     "deploy-node": "cd node && now",
 
-    "node-express": "node node-express/index.js",
+    "node-express": "SERVE=true node node-express/index.js",
     "deploy-node-express": "cd node-express && now",
 
     "node-static-auth": "SERVE=true node node-static-auth/index.js",

@@ -16,8 +16,13 @@ app.use('/admin', basicAuth({
 
 app.use(express.static(__dirname + '/_static'));
 
+module.exports = app;
+
 /*
  *
  */
 
-app.listen(4444, () => console.log('Listening on port 4444...'));
+// Serve on localhost if asked to.
+// NOTE: This is only used for local testing, this is NOT needed nor used by Now once deployed.
+if (process.env.SERVE === 'true')
+  app.listen(4444, () => console.log('Listening on port 4444...'));

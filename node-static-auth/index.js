@@ -1,4 +1,5 @@
 const protect = require('static-auth');
+const safeCompare = require('safe-compare');
 
 /*
  *
@@ -6,7 +7,7 @@ const protect = require('static-auth');
 
 const app = protect(
   '/admin',
-  (user, pass) => (user === 'admin' && pass === 'admin'),
+  (username, password) => safeCompare(username, 'admin') && safeCompare(password, 'admin'),
   {
     directory: __dirname + '/_static',
     realm: 'now-basic-auth.node-static-auth',

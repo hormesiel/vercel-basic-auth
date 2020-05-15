@@ -91,7 +91,7 @@ function adminAreaTest(url: string, expectedResponseCode: number) {
 }
 
 function fetch(relativeUrl: string) {
-  return nodeFetch('http://localhost:4444' + relativeUrl, {
+  return nodeFetch('http://localhost:3000' + relativeUrl, {
     headers: {
       'Authorization': 'Basic ' + Buffer.from(testVariant.credentials.username + ':' + testVariant.credentials.password).toString('base64')
     }

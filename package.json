@@ -10,13 +10,13 @@
     "install:node-express": "cd node-express/ && yarn",
     "install:node-static-auth": "cd node-static-auth/ && yarn",
 
-    "node": "SERVE=true node node/index.js",
+    "node": "cd node/ && now dev",
     "deploy-node": "cd node && now",
 
-    "node-express": "SERVE=true node node-express/index.js",
+    "node-express": "cd node-express/ && now dev",
     "deploy-node-express": "cd node-express && now",
 
-    "node-static-auth": "SERVE=true node node-static-auth/index.js",
+    "node-static-auth": "cd node-static-auth/ && now dev",
     "deploy-node-static-auth": "cd node-static-auth && now",
 
     "test": "TEST_VARIANT=no-credentials jest && TEST_VARIANT=invalid-credentials jest && TEST_VARIANT=valid-credentials jest",

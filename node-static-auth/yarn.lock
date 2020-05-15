@@ -163,10 +163,10 @@ setprototypeof@1.1.1:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.1.1.tgz#7e95acb24aa92f5885e0abef5ba131330d4ae683"
   integrity sha512-JvdAWfbXeIGaZ9cILp38HntZSFSo3mWg6xGcJJsd+d4aRMOqauag1C63dJfDw7OaMYwEbHMOxEZ1lqVRYP2OAw==
 
-static-auth@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/static-auth/-/static-auth-1.1.1.tgz#68133d54e62969c6f40aa9a2d15d4eb61f6be244"
-  integrity sha512-8CeqISLoRRNLccpYmQal71hWb3rlbRO8uKTCAljGmnjyFBAr84aOSWMUVEkRdbTFqyJrZa3Mgs+Ww3vuIUmG+g==
+static-auth@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/static-auth/-/static-auth-2.0.0.tgz#145ca57f6b28612de0f349780732ab67b608f45e"
+  integrity sha512-1/RpxW1rs8LM5D1JvxqgOH2C1ETpoxPrwwjFi6GQRU0uP8R0IAc7sX6FHkW7lrwRAkIGrdhOKA5PHREvgxHKug==
   dependencies:
     basic-auth "^2.0.1"
     serve-static "^1.14.1"

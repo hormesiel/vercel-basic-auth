@@ -84,7 +84,7 @@ function adminAreaTest(url: string, expectedResponseCode: number) {
       if (res.status === 401) {
         const body = await res.text();
         expect(body).toBe('Restricted area, please login (admin:admin).');
-        expect(res.headers.get('www-authenticate')).toMatch(/Basic realm="?now-basic-auth\.[a-z-]+"?/);
+        expect(res.headers.get('www-authenticate')).toMatch(/Basic realm="now-basic-auth\.[a-z-]+"/);
       }
     });
   });

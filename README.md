@@ -23,7 +23,7 @@ Each example contains its own README file with some additional information.
 
 Issues and PR are welcome!
 
-* 🔀 Fork and clone the project
-* 🆕 Create a directory named after the language / framework you want to add (for example `php` or `node-polka`)
-* 👨‍💻 Add the implementation
-* 🎉 Submit your PR
+- 🔀 Fork and clone the project
+- 🆕 Create a directory named after the language / framework you want to add (for example `php` or `node-polka`)
+- 👨‍💻 Add the implementation
+- 🎉 Submit your PR

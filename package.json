@@ -1,6 +1,6 @@
 {
-  "name": "now-basic-auth",
-  "repository": "git@github.com:flawyte/now-basic-auth.git",
+  "name": "vercel-basic-auth",
+  "repository": "git@github.com:flawyte/vercel-basic-auth.git",
   "author": "Mickaël Allonneau <mickael.allonneau@gmail.com>",
   "license": "MIT",
   "private": true,
@@ -10,14 +10,14 @@
     "install:node-express": "cd node-express/ && yarn",
     "install:node-static-auth": "cd node-static-auth/ && yarn",
 
-    "node": "cd node/ && now dev",
-    "deploy-node": "cd node && now",
+    "node": "cd node/ && vercel dev",
+    "deploy-node": "cd node && vercel",
 
-    "node-express": "cd node-express/ && now dev",
-    "deploy-node-express": "cd node-express && now",
+    "node-express": "cd node-express/ && vercel dev",
+    "deploy-node-express": "cd node-express && vercel",
 
-    "node-static-auth": "cd node-static-auth/ && now dev",
-    "deploy-node-static-auth": "cd node-static-auth && now",
+    "node-static-auth": "cd node-static-auth/ && vercel dev",
+    "deploy-node-static-auth": "cd node-static-auth && vercel",
 
     "test": "TEST_VARIANT=no-credentials jest && TEST_VARIANT=invalid-credentials jest && TEST_VARIANT=valid-credentials jest",
     "update-static-dirs": "bash update-static-dirs.sh"

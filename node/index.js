@@ -24,7 +24,7 @@ const app = async (req, res) => {
   if (req.url.startsWith('/admin')) {
     const authorized = await auth(req, res);
     if (!authorized) {
-      res.writeHead(401, { 'WWW-Authenticate': 'Basic realm="now-basic-auth.node"' });
+      res.writeHead(401, { 'WWW-Authenticate': 'Basic realm="vercel-basic-auth.node"' });
       return res.end('Restricted area, please login (admin:admin).');
     }
   }

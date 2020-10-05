@@ -9,7 +9,7 @@ const app = express();
 
 app.use('/admin', basicAuth({
   challenge: true,
-  realm: 'now-basic-auth.node-express',
+  realm: 'vercel-basic-auth.node-express',
   users: { 'admin': 'admin' },
   unauthorizedResponse: 'Restricted area, please login (admin:admin).'
 }));

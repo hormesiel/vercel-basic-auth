@@ -13,11 +13,11 @@ Each example contains its own README file with some additional information.
 
 ## Comparison
 
-| Example          | 📦 Lambda size | 🔗 Deployment URL                                              |
-| ---------------- | -------------  | -------------------------------------------------------------- |
-| node             | 0.08 MB        | [Link](https://vercel-basic-auth-node.vercel.app/)             |
-| node-express     | 0.38 MB        | [Link](https://vercel-basic-auth-node-express.vercel.app/)     |
-| node-static-auth | 0.08 MB        | [Link](https://vercel-basic-auth-node-static-auth.vercel.app/) |
+| Example          | 📦 Lambda size | 🔗 Deployment URL                                             | 👨‍💻 Ease of implementation |
+| ---------------- | -------------- | -------------------------------------------------------------- | ----------------------------- |
+| node             | 0.08 MB        | [Link](https://vercel-basic-auth-node.vercel.app/)             | ⭐                            |
+| node-express     | 0.38 MB        | [Link](https://vercel-basic-auth-node-express.vercel.app/)     | ⭐⭐                         |
+| node-static-auth | 0.08 MB        | [Link](https://vercel-basic-auth-node-static-auth.vercel.app/) | ⭐⭐⭐                       |
 
 ## Contributing
 

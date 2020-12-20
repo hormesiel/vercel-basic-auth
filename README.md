@@ -4,6 +4,10 @@ This repo contains examples of how to add *Basic Authentication* to a Vercel dep
 
 Each example contains its own README file with some additional information.
 
+## Adding basic auth to SSR / API routes
+
+All the examples in this repo only show how to add basic auth to **static pages**. If you want to add basic auth to SSR or API routes, you'll have to do it manually or use a package specifically designed for the framework you're using, like [nextjs-basic-auth-middleware](https://www.npmjs.com/package/nextjs-basic-auth-middleware) if your project uses Next.js.
+
 ## Structure
 
 - The `_static` directory contains the source code for the "website" that each implementation serves for demonstration purposes : HTML, CSS, images ... <sup>1</sup>

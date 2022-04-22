@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "safe-compare": "^1.1.4",
-    "static-auth": "^2.0.0"
+    "static-auth": "^2.1.2"
   }
 }

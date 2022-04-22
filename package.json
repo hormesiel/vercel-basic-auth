@@ -1,7 +1,7 @@
 {
   "name": "vercel-basic-auth",
   "repository": "git@github.com:flawyte/vercel-basic-auth.git",
-  "author": "Mickaël Allonneau <mickael.allonneau@gmail.com>",
+  "author": "Mickaël Allonneau <mickael.allonneau.pro@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {

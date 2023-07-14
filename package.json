@@ -19,6 +19,9 @@
     "node-static-auth": "cd node-static-auth/ && vercel dev",
     "deploy:node-static-auth": "cd node-static-auth/ && vercel",
 
+    "vercel-json": "cd vercel-json/ && vercel dev",
+    "deploy:vercel-json": "cd vercel-json/ && vercel",
+
     "test": "TEST_VARIANT=no-credentials jest && TEST_VARIANT=invalid-credentials jest && TEST_VARIANT=valid-credentials jest"
   },
   "devDependencies": {

@@ -11,16 +11,15 @@
     "install:node-static-auth": "cd node-static-auth/ && yarn",
 
     "node": "cd node/ && vercel dev",
-    "deploy:node": "cd node && vercel",
+    "deploy:node": "cd node/ && vercel",
 
     "node-express": "cd node-express/ && vercel dev",
-    "deploy:node-express": "cd node-express && vercel",
+    "deploy:node-express": "cd node-express/ && vercel",
 
     "node-static-auth": "cd node-static-auth/ && vercel dev",
-    "deploy:node-static-auth": "cd node-static-auth && vercel",
+    "deploy:node-static-auth": "cd node-static-auth/ && vercel",
 
-    "test": "TEST_VARIANT=no-credentials jest && TEST_VARIANT=invalid-credentials jest && TEST_VARIANT=valid-credentials jest",
-    "update-static-dirs": "bash update-static-dirs.sh"
+    "test": "TEST_VARIANT=no-credentials jest && TEST_VARIANT=invalid-credentials jest && TEST_VARIANT=valid-credentials jest"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",

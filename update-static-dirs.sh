@@ -11,3 +11,7 @@ rm -rf node-express/_static/ \
 # node-static-auth
 rm -rf node-static-auth/_static/ \
 && cp -r _static/ node-static-auth/
+
+# vercel-json
+rm -rf vercel-json/_static/ \
+&& cp -r _static/ vercel-json/

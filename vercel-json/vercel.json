@@ -9,7 +9,7 @@
         {
           "type": "header",
           "key": "authorization",
-          "value": "Basic YWxhZGRpbjpvcGVuc2VzYW1lCg=="
+          "value": "Basic YWxhZGRpbjpvcGVuc2VzYW1l"
         }
       ]
     }

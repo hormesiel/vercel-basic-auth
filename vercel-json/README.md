@@ -18,9 +18,14 @@ Password: `opensesame`
 You can choose your own username and password by base64 encoding it e.g.
 
 ```bash
-$ echo "aladdin:opensesame" | base64
-YWxhZGRpbjpvcGVuc2VzYW1lCg==
+$ echo -n "aladdin:opensesame" | base64
+YWxhZGRpbjpvcGVuc2VzYW1l
 ```
+
+*NOTE*: Make sure to use `echo -n` to not accidently encode a newline
+`\n` character and be incorrect! You can always check your browser's
+`Developer Mode -> Network Tab -> Request Headers -> authorization`
+field to confirm the exact header being sent matches the `vercel.json`.
 
 Basic Auth + HTTPS is sufficient for protecting many common use cases
 like staging deployments etc. You can set a custom 401 Unauthorized page

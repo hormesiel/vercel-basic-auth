@@ -25,6 +25,8 @@ Behaviors to test :
 
 */
 
+if (!process.env.TEST_URL)
+  throw 'The env variable `TEST_URL` must be set.';
 if (!process.env.TEST_VARIANT)
   throw 'The env variable `TEST_VARIANT` must be set to one of the following: no-credentials, invalid-credentials, valid-credentials';
 
@@ -68,6 +70,7 @@ const testVariants = {
   },
 };
 
+const testUrl = process.env.TEST_URL
 const testVariant = testVariants[process.env.TEST_VARIANT];
 
 //
@@ -91,7 +94,7 @@ function adminAreaTest(url: string, expectedResponseCode: number) {
 }
 
 function fetch(relativeUrl: string) {
-  return nodeFetch('http://localhost:3000' + relativeUrl, {
+  return nodeFetch(testUrl + relativeUrl, {
     headers: {
       'Authorization': 'Basic ' + Buffer.from(testVariant.credentials.username + ':' + testVariant.credentials.password).toString('base64')
     }

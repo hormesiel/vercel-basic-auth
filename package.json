@@ -22,7 +22,7 @@
     "vercel-json": "cd vercel-json/ && vercel dev",
     "deploy:vercel-json": "cd vercel-json/ && vercel",
 
-    "test": "TEST_VARIANT=no-credentials jest && TEST_VARIANT=invalid-credentials jest && TEST_VARIANT=valid-credentials jest"
+    "test": "bash test.sh"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",

@@ -1,7 +1,7 @@
 {
   "routes": [
     {
-      "src": "/admin.*",
+      "src": "/admin(.*)",
       "dest": "/401.html",
       "status": 401,
       "headers": { "www-authenticate": "Basic realm=\"vercel-basic-auth.vercel-json\"" },

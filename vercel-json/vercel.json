@@ -1,0 +1,17 @@
+{
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "/401",
+      "status": 401,
+      "headers": { "www-authenticate": "Basic realm=\"secure\"" },
+      "missing": [
+        {
+          "type": "header",
+          "key": "authorization",
+          "value": "Basic YWxhZGRpbjpvcGVuc2VzYW1l"
+        }
+      ]
+    }
+  ]
+}

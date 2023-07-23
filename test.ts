@@ -114,7 +114,7 @@ function publicAreaTest(url: string, expectedResponseCode: number) {
 // Tests
 //
 
-describe(testVariant.name, () => {
+describe(testUrl + ': ' + testVariant.name, () => {
   // Public area
 
   publicAreaTest('/', 200);

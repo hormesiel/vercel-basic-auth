@@ -10,8 +10,8 @@ const app = express();
 app.use('/admin', basicAuth({
   challenge: true,
   realm: 'vercel-basic-auth.node-express',
-  users: { 'admin': 'admin' },
-  unauthorizedResponse: 'Restricted area, please login (admin:admin).'
+  users: { 'user': 'pass' },
+  unauthorizedResponse: 'Restricted area, please login (user:pass).'
 }));
 
 app.use(express.static(__dirname + '/_static'));

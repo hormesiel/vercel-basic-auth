@@ -12,14 +12,14 @@ built-in Basic Auth dialogue box. If you enter the correct username
 and password, it will skip past the `routes` block and return the usual
 response.
 
-Username: `admin`
-Password: `admin`
+Username: `user`
+Password: `pass`
 
 You can choose your own username and password by base64 encoding it e.g.
 
 ```bash
-$ echo -n "admin:admin" | base64
-YWRtaW46YWRtaW4=
+$ echo -n "user:pass" | base64
+dXNlcjpwYXNz
 ```
 
 *NOTE*: Make sure to use `echo -n` to not accidently encode a newline

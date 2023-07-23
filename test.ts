@@ -12,16 +12,16 @@ Behaviors to test :
 | GET /_assets/ic_about.svg           | 200                                                    | 200                                                    | 200               |
 | GET /_styles/app.css                | 200                                                    | 200                                                    | 200               |
 |                                     |                                                        |                                                        |                   |
-| GET /admin                          | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
-| GET /admin/index.html               | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
-| GET /admin/index.js                 | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
-| GET /admin/users.html               | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
-| GET /admin/_assets/ic_dashboard.svg | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
-| GET /admin/_assets/ic_users.svg     | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
-| GET /admin/_styles/admin.css        | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 200               |
+| GET /admin                          | 401, body=Restricted area, please login (user:pass).   | 401, body=Restricted area, please login (user:pass).   | 200               |
+| GET /admin/index.html               | 401, body=Restricted area, please login (user:pass).   | 401, body=Restricted area, please login (user:pass).   | 200               |
+| GET /admin/index.js                 | 401, body=Restricted area, please login (user:pass).   | 401, body=Restricted area, please login (user:pass).   | 200               |
+| GET /admin/users.html               | 401, body=Restricted area, please login (user:pass).   | 401, body=Restricted area, please login (user:pass).   | 200               |
+| GET /admin/_assets/ic_dashboard.svg | 401, body=Restricted area, please login (user:pass).   | 401, body=Restricted area, please login (user:pass).   | 200               |
+| GET /admin/_assets/ic_users.svg     | 401, body=Restricted area, please login (user:pass).   | 401, body=Restricted area, please login (user:pass).   | 200               |
+| GET /admin/_styles/admin.css        | 401, body=Restricted area, please login (user:pass).   | 401, body=Restricted area, please login (user:pass).   | 200               |
 |                                     |                                                        |                                                        |                   |
 | GET /foo                            | 404                                                    | 404                                                    | 404               |
-| GET /admin/foo                      | 401, body=Restricted area, please login (admin:admin). | 401, body=Restricted area, please login (admin:admin). | 404               |
+| GET /admin/foo                      | 401, body=Restricted area, please login (user:pass).   | 401, body=Restricted area, please login (user:pass).   | 404               |
 
 */
 
@@ -62,8 +62,8 @@ const testVariants = {
   'valid-credentials': {
     name: 'Valid credentials',
     credentials: {
-      username: 'admin',
-      password: 'admin',
+      username: 'user',
+      password: 'pass',
     },
     expectedAdminAreaResponseCode: 200,
     expectedAdminAreaNonExistentUrlResponseCode: 404,
@@ -86,7 +86,7 @@ function adminAreaTest(url: string, expectedResponseCode: number) {
       // If not authorized, check response body and realm too
       if (res.status === 401) {
         const body = await res.text();
-        expect(body).toBe('Restricted area, please login (admin:admin).');
+        expect(body).toBe('Restricted area, please login (user:pass).');
         expect(res.headers.get('www-authenticate')).toMatch(/Basic realm="vercel-basic-auth\.[a-z-]+"/);
       }
     });

@@ -8,7 +8,7 @@ const serveStatic = require('serve-static');
 
 const auth = (req, res) => new Promise(resolve => {
   const credentials = readAuth(req);
-  const authorized = credentials && safeCompare(credentials.name, 'admin') && safeCompare(credentials.pass, 'admin');
+  const authorized = credentials && safeCompare(credentials.name, 'user') && safeCompare(credentials.pass, 'pass');
   resolve(authorized);
 });
 
@@ -25,7 +25,7 @@ const app = async (req, res) => {
     const authorized = await auth(req, res);
     if (!authorized) {
       res.writeHead(401, { 'WWW-Authenticate': 'Basic realm="vercel-basic-auth.node"' });
-      return res.end('Restricted area, please login (admin:admin).');
+      return res.end('Restricted area, please login (user:pass).');
     }
   }
 

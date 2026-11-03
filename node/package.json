@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "basic-auth": "^2.0.1",
+    "basic-auth": "^3.0.0",
     "safe-compare": "^1.1.4",
-    "serve-static": "^1.16.0"
+    "serve-static": "^2.2.1"
   }
 }

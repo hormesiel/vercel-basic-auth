@@ -1,4 +1,4 @@
-const readAuth = require('basic-auth');
+const { parse } = require('basic-auth');
 const safeCompare = require('safe-compare');
 const serveStatic = require('serve-static');
 
@@ -7,7 +7,7 @@ const serveStatic = require('serve-static');
  */
 
 const auth = (req, res) => new Promise(resolve => {
-  const credentials = readAuth(req);
+  const credentials = parse(req.headers.authorization ?? '');
   const authorized = credentials && safeCompare(credentials.name, 'user') && safeCompare(credentials.pass, 'pass');
   resolve(authorized);
 });
